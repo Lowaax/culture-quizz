@@ -1,0 +1,8 @@
+# Fichiers générés par les systèmes d'exploitation et les éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Configuration locale de l'outillage
+.claude/

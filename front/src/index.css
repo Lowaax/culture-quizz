@@ -1,0 +1,228 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #05060b;
+  --bg-elevated: #10121c;
+  --bg-card: #14172400;
+  --panel: #12141fcc;
+  --border: rgba(255, 232, 31, 0.22);
+  --border-soft: rgba(255, 255, 255, 0.08);
+
+  --accent: #ffe81f;
+  --accent-dim: #cbb400;
+  --accent-soft: rgba(255, 232, 31, 0.12);
+
+  --good: #35e07a;
+  --good-soft: rgba(53, 224, 122, 0.16);
+  --bad: #ff4d4d;
+  --bad-soft: rgba(255, 77, 77, 0.16);
+
+  --text: #f4f5f7;
+  --text-dim: #9aa0b4;
+  --text-faint: #5d6478;
+
+  --font-display: 'Orbitron', 'Segoe UI', sans-serif;
+  --font-body: 'Rajdhani', 'Segoe UI', sans-serif;
+
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 232, 31, 0.08), transparent),
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.6) 50%, transparent),
+    radial-gradient(1px 1px at 80% 15%, rgba(255, 255, 255, 0.5) 50%, transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.4) 50%, transparent),
+    radial-gradient(1px 1px at 30% 85%, rgba(255, 255, 255, 0.5) 50%, transparent),
+    radial-gradient(1px 1px at 90% 55%, rgba(255, 255, 255, 0.35) 50%, transparent),
+    radial-gradient(1px 1px at 45% 40%, rgba(255, 255, 255, 0.3) 50%, transparent);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--text);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem calc(1.5rem + var(--safe-bottom));
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius);
+  padding: 0.9rem 1.5rem;
+  min-height: 48px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #0a0a0a;
+  box-shadow: 0 0 22px rgba(255, 232, 31, 0.35);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0a0a;
+  box-shadow: 0 0 18px rgba(255, 232, 31, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 26px rgba(255, 232, 31, 0.45);
+}
+
+.card {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(6px);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+}
+
+.text-dim {
+  color: var(--text-dim);
+}
+
+/* Lien secondaire : accès au compte, « jouer sans compte »… */
+.lien-discret {
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: 0.5rem;
+  min-height: 44px;
+}
+
+.lien-discret:hover {
+  color: var(--text-dim);
+}
+
+/* Contenu réservé aux lecteurs d'écran (verdict d'une réponse, par exemple). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (min-width: 720px) {
+  body {
+    font-size: 18px;
+  }
+}
